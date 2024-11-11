@@ -206,4 +206,5 @@ return {
     end,
   },
   { "danilamihailov/beacon.nvim" },
+  { "wakatime/vim-wakatime" },
 }
