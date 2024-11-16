@@ -121,7 +121,7 @@ end)
 autocmd.user_pattern("LazyDone", function()
   -- auto load language-server
   Util.lsmod("lsp", function(modname, _)
-    require(modname).setup()
+    require(modname)
   end)
   setup_treesitter()
   setup_cmp()
