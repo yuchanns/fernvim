@@ -3,7 +3,6 @@ local nmap = keymap.nmap
 local cmd = keymap.cmd
 local silent, noremap = keymap.silent, keymap.noremap
 local opts = keymap.new_opts
-local uv = vim.loop
 local system = require("utils.system")
 local autocmd = require("utils.autocmd")
 
@@ -15,24 +14,7 @@ autocmd.user_pattern("LazyDone", function()
 end)
 
 autocmd.user_pattern("AlphaReady", function()
-  local handle
-  local on_exit = vim.schedule_wrap(function(_)
-    handle:close()
-    require("persistence").load()
-  end)
-  if system.is_windows() then
-    handle, _ = uv.spawn(
-      "powershell",
-      { args = { "-Command", "Start-Sleep -Seconds 1s" }, stdio = nil },
-      on_exit
-    )
-  else
-    handle, _ = uv.spawn(
-      "sleep",
-      { args = { "1s" }, stdio = nil },
-      on_exit
-    )
-  end
+  vim.defer_fn(require("persistence").load, 1000)
 end)
 
 nmap({

@@ -1,4 +1,4 @@
-local opt, uv, fn, g, cmd = vim.opt, vim.loop, vim.fn, vim.g, vim.cmd
+local opt, uv, fn, g, cmd = vim.opt, vim.uv, vim.fn, vim.g, vim.cmd
 local cache_dir = vim.env.HOME .. "/.cache/nvim"
 local keymap = require("utils.keymap")
 local nmap = keymap.nmap
