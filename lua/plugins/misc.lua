@@ -157,15 +157,6 @@ return {
           redraw = true,
           window_config = { height = 30 },
         }
-      else
-        math.randomseed(os.time())
-        local colors = { "#7ba2f7", "#9b348e", "#db627c", "#fda17d", "#86bbd8", "#33648a" }
-        local function random_colors(color_lst)
-          return color_lst[math.random(1, #color_lst)]
-        end
-        vim.cmd(string.format("highlight dashboard guifg=%s guibg=bg", random_colors(colors)))
-        dashboard.section.header.val = require("modules.ui.header")
-        dashboard.section.header.opts.hl = "dashboard"
       end
 
       dashboard.section.buttons.val = {
