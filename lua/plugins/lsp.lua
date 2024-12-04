@@ -164,6 +164,7 @@ nmap({
   { "]e",        cmd("Lspsaga diagnostic_jump_next"),                           opts(noremap, silent) },
   { "<Leader>e", cmd("Lspsaga show_line_diagnostics"),                          opts(noremap, silent) },
   { "<Leader>a", cmd("Lspsaga outline"),                                        opts(noremap, silent) },
+  { "<Leader>r", cmd("LspRestart"),                                             opts(noremap, silent) },
 })
 
 
