@@ -22,4 +22,13 @@ function M.lsp_attach(on_attach)
   })
 end
 
+--- @param cmd string
+--- @param callback function
+--- @param opts table optional
+function M.user_cmd(cmd, callback, opts)
+  vim.api.nvim_create_user_command(cmd, function()
+    pcall(callback)
+  end, opts)
+end
+
 return M

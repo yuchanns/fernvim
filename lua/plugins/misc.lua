@@ -17,6 +17,15 @@ autocmd.user_pattern("AlphaReady", function()
   vim.defer_fn(require("persistence").load, 1000)
 end)
 
+autocmd.user_cmd("ToggleFold", function()
+  local fold_closed = vim.fn.foldclosed(vim.fn.line("."))
+  if fold_closed == -1 then
+    vim.cmd([[normal! zc]])
+  else
+    vim.cmd([[normal! zo]])
+  end
+end, {})
+
 nmap({
   {
     "<Leader>fa",
@@ -52,6 +61,7 @@ nmap({
   { "-",         cmd("exe 'resize -1.5'"),                             opts(noremap, silent) },
   { "+",         cmd("exe 'vertical resize +1.5'"),                    opts(noremap, silent) },
   { "_",         cmd("exe 'vertical resize -1.5'"),                    opts(noremap, silent) },
+  { '<Leader>z', cmd("ToggleFold"),                                    opts(noremap, silent) }
 })
 
 return {

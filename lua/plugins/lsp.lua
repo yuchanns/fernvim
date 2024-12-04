@@ -118,7 +118,7 @@ autocmd.lsp_attach(function(client, bufnr)
   require("illuminate").on_attach(client, bufnr)
 end)
 
-autocmd.user_pattern("LazyDone", function()
+autocmd.user_pattern("VeryLazy", function()
   -- auto load language-server
   Util.lsmod("lsp", function(modname, _)
     require(modname)
@@ -126,6 +126,11 @@ autocmd.user_pattern("LazyDone", function()
   setup_treesitter()
   setup_cmp()
 end)
+
+autocmd.user_cmd("LspRestartHint", function()
+  vim.cmd("LspRestart")
+  vim.notify("LSP Restarted", vim.log.levels.INFO, { title = "LSP" })
+end, {})
 
 -- lspsaga
 vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "Error" })
@@ -164,7 +169,7 @@ nmap({
   { "]e",        cmd("Lspsaga diagnostic_jump_next"),                           opts(noremap, silent) },
   { "<Leader>e", cmd("Lspsaga show_line_diagnostics"),                          opts(noremap, silent) },
   { "<Leader>a", cmd("Lspsaga outline"),                                        opts(noremap, silent) },
-  { "<Leader>r", cmd("LspRestart"),                                             opts(noremap, silent) },
+  { "<Leader>r", cmd("LspRestartHint"),                                             opts(noremap, silent) },
 })
 
 

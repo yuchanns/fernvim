@@ -5,7 +5,7 @@ local silent, noremap = keymap.silent, keymap.noremap
 local opts = keymap.new_opts
 local autocmd = require("utils.autocmd")
 
-autocmd.user_pattern("LazyDone", function()
+autocmd.user_pattern("VeryLazy", function()
   require("telescope").load_extension("lazygit")
 end)
 
