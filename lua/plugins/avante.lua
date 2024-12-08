@@ -11,6 +11,9 @@ return {
   event = "VeryLazy",
   opts = {
     provider = "copilot",
+    copilot = {
+      model = "claude-3.5-sonnet",
+    },
     azure = {
       endpoint = "https://yuchanns-eastus.openai.azure.com",
       deployment = "gpt-4o-mini",
