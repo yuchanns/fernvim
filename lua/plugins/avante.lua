@@ -67,9 +67,9 @@ return {
     },
     --- The below is optional, make sure to setup it properly if you have lazy=true
     {
-      'MeanderingProgrammer/render-markdown.nvim',
+      'OXY2DEV/markview.nvim',
       opts = {
-        file_types = { "markdown", "Avante" },
+        filetypes = { "markdown", "Avante" },
       },
       ft = { "markdown", "Avante" },
     },
