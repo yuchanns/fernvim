@@ -1,4 +1,5 @@
 local system = require("utils.system")
+local autocmd = require("utils.autocmd")
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local extension_path = vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/"
@@ -32,4 +33,11 @@ vim.g.rustaceanvim = {
   },
 }
 
-vim.g.rustfmt_autosave = 1
+autocmd.user_pattern("AutoSave", function()
+  if vim.bo.filetype ~= "rust" then
+    return
+  end
+  vim.lsp.buf.format({ async = true })
+end)
+
+-- vim.g.rustfmt_autosave = 1
