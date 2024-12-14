@@ -64,11 +64,15 @@ function keymap.new_opts(...)
   return o.options
 end
 
+--- @param str string
+--- @return string
 function keymap.cmd(str)
   return '<cmd>' .. str .. '<CR>'
 end
 
 -- visual
+--- @param str string
+--- @return string
 function keymap.cu(str)
   return '<C-u><cmd>' .. str .. '<CR>'
 end
@@ -89,6 +93,8 @@ local keymap_set = function(mode, tbl)
   vim.keymap.set(mode, tbl[1], tbl[2], options)
 end
 
+--- @param mod string
+--- @return fun(tbl: table)
 local function map(mod)
   return function(tbl)
     vim.validate({

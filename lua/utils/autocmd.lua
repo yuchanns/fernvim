@@ -1,5 +1,7 @@
 local M = {}
 
+--- @param pattern string
+--- @param callback fun()
 function M.user_pattern(pattern, callback)
   vim.api.nvim_create_autocmd("User", {
     pattern = pattern,
@@ -7,7 +9,7 @@ function M.user_pattern(pattern, callback)
   })
 end
 
---- @param on_attach function(client: vim.lsp.Client|nil, bufnr: integer)
+--- @param on_attach fun(client: vim.lsp.Client|nil, bufnr: integer)
 function M.lsp_attach(on_attach)
   vim.api.nvim_create_autocmd("LspAttach", {
     pattern = "*",
@@ -23,7 +25,7 @@ function M.lsp_attach(on_attach)
 end
 
 --- @param cmd string
---- @param callback function
+--- @param callback fun()
 --- @param opts table optional
 function M.user_cmd(cmd, callback, opts)
   vim.api.nvim_create_user_command(cmd, function()
