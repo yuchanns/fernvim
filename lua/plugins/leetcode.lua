@@ -9,5 +9,6 @@ return {
   },
   opts = {
     lang = "rust",
+    arg = "leet"
   },
 }
