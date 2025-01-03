@@ -11,6 +11,7 @@ return {
   event = "VeryLazy",
   opts = {
     provider = "copilot",
+    auto_suggestions_provider = "copilot",
     copilot = {
       model = "claude-3.5-sonnet",
     },
@@ -24,6 +25,7 @@ return {
     },
     behaviour = {
       support_paste_from_clipboard = true,
+      auto_suggestions = true,
     },
     mappings = {
       ask = "ca",
