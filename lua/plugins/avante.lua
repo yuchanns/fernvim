@@ -25,7 +25,7 @@ return {
     },
     behaviour = {
       support_paste_from_clipboard = true,
-      auto_suggestions = true,
+      auto_suggestions = false,
     },
     mappings = {
       ask = "ca",
