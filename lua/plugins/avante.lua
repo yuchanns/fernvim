@@ -11,7 +11,7 @@ return {
   event = "VeryLazy",
   opts = {
     provider = "copilot",
-    auto_suggestions_provider = "copilot",
+    auto_suggestions_provider = "azure",
     copilot = {
       model = "claude-3.5-sonnet",
     },
