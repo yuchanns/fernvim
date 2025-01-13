@@ -21,6 +21,8 @@ return {
         h.String = { fg = "#eed49f" }
         h["@keyword"] = { fg = "#ff757f" }
         h["@keyword.function"] = { fg = "#ff757f" }
+        h["@property"] = { fg = "#c3e88d" }
+        h["@variable.member"] = { fg = "#c3e88d" }
       end,
       hide_inactive_statusline = false,
       dim_inactive = false,
