@@ -59,7 +59,7 @@ return {
         diagnostics_indicator = function(_, _, diagnostics_dict, _)
           local s = " "
           for e, n in pairs(diagnostics_dict) do
-            local sym = e == "error" and " " or (e == "warning" and " " or "")
+            local sym = e == "error" and " " or (e == "warning" and " " or (e == "hint" and "" or ""))
             s = s .. n .. sym
           end
           return s
@@ -67,33 +67,36 @@ return {
         custom_areas = {
           right = function()
             local result = {}
-            local error = vim.diagnostic.get(0, [[Error]])
-            local warning = vim.diagnostic.get(0, [[Warning]])
-            local info = vim.diagnostic.get(0, [[Information]])
-            local hint = vim.diagnostic.get(0, [[Hint]])
+            local seve = vim.diagnostic.severity
+            local error = #vim.diagnostic.get(0, { severity = seve.ERROR })
+            local warning = #vim.diagnostic.get(0, { severity = seve.WARN })
+            local info = #vim.diagnostic.get(0, { severity = seve.INFO })
+            local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
 
             if error ~= 0 then
-              table.insert(result, { text = "  " .. error, guifg = "#EC5241" })
+              table.insert(result, { text = "  " .. error, link = "DiagnosticError" })
             end
 
             if warning ~= 0 then
-              table.insert(result, { text = "  " .. warning, guifg = "#EFB839" })
+              table.insert(result, { text = "  " .. warning, link = "DiagnosticWarn" })
             end
 
             if hint ~= 0 then
-              table.insert(result, { text = "  " .. hint, guifg = "#A3BA5E" })
+              table.insert(result, { text = "  " .. hint, link = "DiagnosticHint" })
             end
 
             if info ~= 0 then
-              table.insert(result, { text = "  " .. info, guifg = "#7EA9A7" })
+              table.insert(result, { text = "  " .. info, link = "DiagnosticInfo" })
             end
             return result
           end,
         },
         show_close_icon = false,
         show_buffer_close_icons = false,
+        show_buffer_icons = true,
         offsets = {},
       },
+      show_buffer_icons = true, -- https://github.com/akinsho/bufferline.nvim/issues/990#issuecomment-2585721141
     },
     event = "BufRead",
     dependencies = { "nvim-tree/nvim-web-devicons" },
