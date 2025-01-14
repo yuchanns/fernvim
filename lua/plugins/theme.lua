@@ -18,11 +18,14 @@ return {
       },
       sidebars = { "terminal", "qf", "help" },
       on_highlights = function(h, _)
-        h.String = { fg = "#eed49f" }
+        -- h.String = { fg = "#eed49f" }
+        h.String = { fg = "#c3e88d" }
         h["@keyword"] = { fg = "#ff757f" }
         h["@keyword.function"] = { fg = "#ff757f" }
-        h["@property"] = { fg = "#c3e88d" }
-        h["@variable.member"] = { fg = "#c3e88d" }
+        -- h["@property"] = { fg = "#c3e88d" }
+        -- h["@variable.member"] = { fg = "#c3e88d" }
+        h["@property"] = { fg = "#eed49f" }
+        h["@variable.member"] = { fg = "#eed49f" }
       end,
       hide_inactive_statusline = false,
       dim_inactive = false,
