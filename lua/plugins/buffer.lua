@@ -96,7 +96,6 @@ return {
         show_buffer_icons = true,
         offsets = {},
       },
-      show_buffer_icons = true, -- https://github.com/akinsho/bufferline.nvim/issues/990#issuecomment-2585721141
     },
     event = "BufRead",
     dependencies = { "nvim-tree/nvim-web-devicons" },
