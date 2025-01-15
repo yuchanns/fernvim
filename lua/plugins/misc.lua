@@ -195,4 +195,9 @@ return {
   },
   { "sphamba/smear-cursor.nvim", opts = {} },
   { "wakatime/vim-wakatime" },
+  {
+    "rachartier/tiny-glimmer.nvim",
+    event = "TextYankPost",
+    opts = { default_animation = "pulse" }
+  }
 }
