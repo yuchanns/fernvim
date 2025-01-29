@@ -32,7 +32,6 @@ lspconfig["lua_ls"].setup({
           fn.expand("$VIMRUNTIME/lua"),
           fn.expand("$VIMRUNTIME/lua/vim/lsp"),
           fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy",
-          fn.expand("${3rd}/luv/library"),
         },
       },
       -- Do not send telemetry data containing a randomized but unique identifier
