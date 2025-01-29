@@ -71,7 +71,10 @@ return {
     {
       'OXY2DEV/markview.nvim',
       opts = {
-        filetypes = { "markdown", "Avante" },
+        preview = {
+          enable = true,
+          filetypes = { "markdown", "Avante" },
+        }
       },
       ft = { "markdown", "Avante" },
     },
