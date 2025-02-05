@@ -1,6 +1,6 @@
 local system = require("utils.system")
 
-local build = "make BUILD_FROM_SOURCE=true"
+local build = "make BUILD_FROM_SOURCE=false"
 if system.is_windows() then
   build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
 end
@@ -26,6 +26,9 @@ return {
     behaviour = {
       support_paste_from_clipboard = true,
       auto_suggestions = false,
+    },
+    windows = {
+      position = "bottom"
     },
     mappings = {
       ask = "ca",
