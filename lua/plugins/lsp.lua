@@ -75,6 +75,7 @@ return {
         "ts_ls",
         -- "bufls",
         -- "jdtls",
+        "glsl_analyzer"
       },
     },
     dependencies = {
