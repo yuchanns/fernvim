@@ -27,9 +27,6 @@ return {
       support_paste_from_clipboard = true,
       auto_suggestions = false,
     },
-    windows = {
-      position = "bottom"
-    },
     mappings = {
       ask = "ca",
       edit = "ce",
