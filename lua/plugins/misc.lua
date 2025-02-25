@@ -13,9 +13,7 @@ autocmd.user_pattern("LazyDone", function()
   require("telescope").load_extension("file_browser")
 end)
 
-autocmd.user_pattern("AlphaReady", function()
-  vim.defer_fn(require("persistence").load, 1000)
-end)
+autocmd.user_pattern("AlphaReady", function() vim.defer_fn(require("persistence").load, 1000) end)
 
 autocmd.user_cmd("ToggleFold", function()
   local fold_closed = vim.fn.foldclosed(vim.fn.line("."))
@@ -33,12 +31,10 @@ nmap({
     opts(noremap, silent),
   },
   { "<Leader>v", cmd("vsplit"), opts(noremap, silent) },
-  { "<Leader>s", cmd("split"),  opts(noremap, silent) },
+  { "<Leader>s", cmd("split"), opts(noremap, silent) },
   {
     "s",
-    function()
-      require("flash").jump()
-    end,
+    function() require("flash").jump() end,
     opts(noremap, silent),
   },
   { "<Leader>c", cmd([[lua require("ccr").copy_rel_path_and_line()]]), opts(noremap, silent) },
@@ -57,11 +53,11 @@ nmap({
     cmd("Trouble todo toggle"),
     opts(noremap, silent),
   },
-  { "=",         cmd("exe 'resize +1.5'"),                             opts(noremap, silent) },
-  { "-",         cmd("exe 'resize -1.5'"),                             opts(noremap, silent) },
-  { "+",         cmd("exe 'vertical resize +1.5'"),                    opts(noremap, silent) },
-  { "_",         cmd("exe 'vertical resize -1.5'"),                    opts(noremap, silent) },
-  { '<Leader>z', cmd("ToggleFold"),                                    opts(noremap, silent) }
+  { "=", cmd("exe 'resize +1.5'"), opts(noremap, silent) },
+  { "-", cmd("exe 'resize -1.5'"), opts(noremap, silent) },
+  { "+", cmd("exe 'vertical resize +1.5'"), opts(noremap, silent) },
+  { "_", cmd("exe 'vertical resize -1.5'"), opts(noremap, silent) },
+  { "<Leader>z", cmd("ToggleFold"), opts(noremap, silent) },
 })
 
 return {
@@ -107,7 +103,7 @@ return {
         message = function()
           vim.api.nvim_command("doautocmd User AutoSave")
           return ""
-        end
+        end,
       },
     },
     branch = "dev",
@@ -133,7 +129,7 @@ return {
     opts = {},
     event = "BufReadPre",
   },
-  { "folke/trouble.nvim",    opts = {} },
+  { "folke/trouble.nvim", opts = {} },
   {
     "folke/todo-comments.nvim",
     opts = {
@@ -149,7 +145,7 @@ return {
           "--glob=!node_modules",
         },
       },
-    }
+    },
   },
   { "yuchanns/ccr.nvim" },
   {
@@ -161,10 +157,8 @@ return {
       if system.is_executable("chafa") then
         dashboard.section.header.type = "terminal"
         local image = vim.fn.stdpath("config") .. "/static/AllNightRadio.jpg"
-        dashboard.section.header.command = string.format(
-          "chafa -s 75x75 -f symbols -c full --fg-only --symbols braille --clear %s",
-          image
-        )
+        dashboard.section.header.command =
+          string.format("chafa -s 75x75 -f symbols -c full --fg-only --symbols braille --clear %s", image)
         dashboard.section.header.height = 33
         dashboard.section.header.width = 75
         dashboard.section.header.opts = {
@@ -177,18 +171,8 @@ return {
       dashboard.section.buttons.val = {
         dashboard.button("cn", "  New File       ", ":enew<CR>", nil),
         dashboard.button("ff", "  Browse File    ", ":lua require('vfiler').start()<CR>", nil),
-        dashboard.button(
-          "fa",
-          "  Find Word      ",
-          ":lua require('telescope.builtin').live_grep()<CR>",
-          nil
-        ),
-        dashboard.button(
-          "fh",
-          "  Find History   ",
-          ":lua require('telescope.builtin').oldfiles()<CR>",
-          nil
-        ),
+        dashboard.button("fa", "  Find Word      ", ":lua require('telescope.builtin').live_grep()<CR>", nil),
+        dashboard.button("fh", "  Find History   ", ":lua require('telescope.builtin').oldfiles()<CR>", nil),
       }
       require("alpha").setup(dashboard.opts)
     end,
@@ -198,6 +182,6 @@ return {
   {
     "rachartier/tiny-glimmer.nvim",
     event = "TextYankPost",
-    opts = { default_animation = "pulse" }
-  }
+    opts = { default_animation = "pulse" },
+  },
 }

@@ -23,7 +23,7 @@ return {
         component_separators = { left = "", right = "" },
       },
     },
-    dependencies = { "nvim-tree/nvim-web-devicons" }
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
     "lukas-reineke/indent-blankline.nvim",

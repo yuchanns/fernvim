@@ -1,8 +1,6 @@
 local system = require("utils.system")
 
-if not system.is_executable("clangd") then
-  return
-end
+if not system.is_executable("clangd") then return end
 
 local lspconfig = require("lspconfig")
 

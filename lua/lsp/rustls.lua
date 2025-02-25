@@ -34,9 +34,7 @@ vim.g.rustaceanvim = {
 }
 
 autocmd.user_pattern("AutoSave", function()
-  if vim.bo.filetype ~= "rust" then
-    return
-  end
+  if vim.bo.filetype ~= "rust" then return end
   vim.lsp.buf.format({ async = true })
 end)
 

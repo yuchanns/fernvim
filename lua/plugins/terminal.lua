@@ -6,9 +6,7 @@ local silent, noremap = keymap.silent, keymap.noremap
 local opts = keymap.new_opts
 local system = require("utils.system")
 
-local function t(key)
-  return vim.api.nvim_replace_termcodes(key, true, true, true)
-end
+local function t(key) return vim.api.nvim_replace_termcodes(key, true, true, true) end
 
 tmap({ "<Esc>", t("<C-\\><C-n>"), opts(noremap, silent) })
 
@@ -19,13 +17,11 @@ nmap({
 })
 
 local shell = "/bin/bash"
-if system.is_windows() then
-  shell = "powershell"
-end
+if system.is_windows() then shell = "powershell" end
 
 return {
   "akinsho/toggleterm.nvim",
   opts = {
-    shell = shell
+    shell = shell,
   },
 }

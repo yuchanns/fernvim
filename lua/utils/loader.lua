@@ -4,9 +4,7 @@ local M = {}
 
 ---@param name string
 function M.load_mod(name)
-  Util.lsmod(name, function(modname, _)
-    require(modname)
-  end)
+  Util.lsmod(name, function(modname, _) require(modname) end)
 end
 
 ---@param names string[]

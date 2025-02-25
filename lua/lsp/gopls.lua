@@ -1,8 +1,6 @@
 local system = require("utils.system")
 
-if not system.is_executable("gopls") then
-  return
-end
+if not system.is_executable("gopls") then return end
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 lspconfig["gopls"].setup({
@@ -41,7 +39,5 @@ if system.is_executable("goimports") then
   opts.auto_format = false
   opts.formatter = "goimports"
 end
-if system.is_executable("impl") then
-  require("telescope").load_extension("goimpl")
-end
+if system.is_executable("impl") then require("telescope").load_extension("goimpl") end
 require("go").setup(opts)

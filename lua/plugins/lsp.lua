@@ -6,9 +6,7 @@ local opts = keymap.new_opts
 local autocmd = require("utils.autocmd")
 local loader = require("utils.loader")
 
-autocmd.lsp_attach(function(client, bufnr)
-  require("illuminate").on_attach(client, bufnr)
-end)
+autocmd.lsp_attach(function(client, bufnr) require("illuminate").on_attach(client, bufnr) end)
 
 autocmd.user_pattern("VeryLazy", loader.callback_load_mods({ "lsp", "lsp.setup" }))
 
@@ -39,27 +37,26 @@ vim.diagnostic.config({
 })
 
 nmap({
-  { "ga",        cmd("Lspsaga code_action"),                                    opts(noremap, silent) },
-  { "gi",        cmd("lua require('telescope.builtin').lsp_implementations()"), opts(noremap, silent) },
-  { "gr",        cmd("lua vim.lsp.buf.references()"),                           opts(noremap, silent) },
-  { "gd",        cmd("lua vim.lsp.buf.definition()"),                           opts(noremap, silent) },
-  { "gs",        cmd("lua vim.lsp.buf.document_symbol()"),                      opts(noremap, silent) },
-  { "gR",        cmd("Trouble lsp_references toggle"),                          opts(noremap, silent) },
-  { "gh",        cmd("Lspsaga finder ref+def"),                                 opts(noremap, silent) },
-  { "gm",        cmd("lua require'telescope'.extensions.goimpl.goimpl{}"),      opts(noremap, silent) },
-  { "gn",        cmd("Lspsaga rename"),                                         opts(noremap, silent) },
-  { "gf",        cmd("lua vim.lsp.buf.format { async = true }"),                opts(noremap, silent) },
-  { "K",         cmd("Lspsaga hover_doc"),                                      opts(noremap, silent) },
-  { "[e",        cmd("Lspsaga diagnostic_jump_prev"),                           opts(noremap, silent) },
-  { "]e",        cmd("Lspsaga diagnostic_jump_next"),                           opts(noremap, silent) },
-  { "<Leader>e", cmd("Lspsaga show_line_diagnostics"),                          opts(noremap, silent) },
-  { "<Leader>a", cmd("Lspsaga outline"),                                        opts(noremap, silent) },
-  { "<Leader>r", cmd("LspRestartHint"),                                         opts(noremap, silent) },
+  { "ga", cmd("Lspsaga code_action"), opts(noremap, silent) },
+  { "gi", cmd("lua require('telescope.builtin').lsp_implementations()"), opts(noremap, silent) },
+  { "gr", cmd("lua vim.lsp.buf.references()"), opts(noremap, silent) },
+  { "gd", cmd("lua vim.lsp.buf.definition()"), opts(noremap, silent) },
+  { "gs", cmd("lua vim.lsp.buf.document_symbol()"), opts(noremap, silent) },
+  { "gR", cmd("Trouble lsp_references toggle"), opts(noremap, silent) },
+  { "gh", cmd("Lspsaga finder ref+def"), opts(noremap, silent) },
+  { "gm", cmd("lua require'telescope'.extensions.goimpl.goimpl{}"), opts(noremap, silent) },
+  { "gn", cmd("Lspsaga rename"), opts(noremap, silent) },
+  { "gf", cmd("lua vim.lsp.buf.format { async = true }"), opts(noremap, silent) },
+  { "K", cmd("Lspsaga hover_doc"), opts(noremap, silent) },
+  { "[e", cmd("Lspsaga diagnostic_jump_prev"), opts(noremap, silent) },
+  { "]e", cmd("Lspsaga diagnostic_jump_next"), opts(noremap, silent) },
+  { "<Leader>e", cmd("Lspsaga show_line_diagnostics"), opts(noremap, silent) },
+  { "<Leader>a", cmd("Lspsaga outline"), opts(noremap, silent) },
+  { "<Leader>r", cmd("LspRestartHint"), opts(noremap, silent) },
 })
 
-
 return {
-  { "nvim-treesitter/nvim-treesitter",             build = ":TSUpdate",                 event = "BufRead", },
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", event = "BufRead" },
   { "nvim-treesitter/nvim-treesitter-textobjects", dependencies = { "nvim-treesitter" } },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -75,12 +72,12 @@ return {
         "ts_ls",
         -- "bufls",
         -- "jdtls",
-        "glsl_analyzer"
+        "glsl_analyzer",
       },
     },
     dependencies = {
       { "williamboman/mason.nvim", opts = {} },
-      { "neovim/nvim-lspconfig", },
+      { "neovim/nvim-lspconfig", dependencies = { "ckipp01/stylua-nvim" } },
     },
   },
   {
@@ -145,7 +142,7 @@ return {
     "MysticalDevil/inlay-hints.nvim",
     event = "LspAttach",
     opts = {},
-    dependencies = { "neovim/nvim-lspconfig" }
+    dependencies = { "neovim/nvim-lspconfig" },
   },
   {
     "mrcjkb/rustaceanvim",
@@ -153,7 +150,6 @@ return {
     ft = { "rust" },
     lazy = false,
     dependencies = { "rust-lang/rust.vim" },
-
   },
-  { "RRethy/vim-illuminate" }
+  { "RRethy/vim-illuminate" },
 }

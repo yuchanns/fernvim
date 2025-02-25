@@ -117,17 +117,13 @@ opt.belloff = "all"
 opt.fileformat = "unix"
 opt.fileformats = "unix,dos"
 
-if fn.has("win32") ~= 1 then
-  opt.shell = "bash"
-end
+if fn.has("win32") ~= 1 then opt.shell = "bash" end
 
 vim.wo.signcolumn = "yes:1"
 cmd("set mouse=")
-cmd("let &fcs='eob: '")   -- hide tilde sign on blank lines
+cmd("let &fcs='eob: '") -- hide tilde sign on blank lines
 
-if fn.has("win32") == 1 then
-  nmap({ "v", "<C-q>", opts(noremap, silent) })
-end
+if fn.has("win32") == 1 then nmap({ "v", "<C-q>", opts(noremap, silent) }) end
 
 g.loaded_gzip = 1
 g.loaded_tar = 1
@@ -148,6 +144,4 @@ g.loaded_netrwPlugin = 1
 g.loaded_netrwSettings = 1
 g.loaded_netrwFileHandlers = 1
 
-if g.neovide then
-  vim.o.guifont = "BerkeleyMono Nerd Font:h11"
-end
+if g.neovide then vim.o.guifont = "BerkeleyMono Nerd Font:h11" end

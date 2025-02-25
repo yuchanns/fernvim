@@ -9,15 +9,13 @@ local lspkind = require("lspkind")
 cmp.setup({
   formatting = {
     format = lspkind.cmp_format({
-      mode = "symbol",         -- show only symbol annotations
-      maxwidth = 50,           -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-      ellipsis_char = "...",   -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+      mode = "symbol", -- show only symbol annotations
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 
       -- The function below will be called before any actual modifications from lspkind
       -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-      before = function(_, vim_item)
-        return vim_item
-      end,
+      before = function(_, vim_item) return vim_item end,
     }),
   },
   experimental = {
@@ -26,12 +24,12 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body)   -- For `ultisnips` users.
+      vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
     end,
   },
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
-    { name = "ultisnips" },   -- For ultisnips users.
+    { name = "ultisnips" }, -- For ultisnips users.
     { name = "nvim_lua" },
     { name = "buffer" },
     { name = "path" },
@@ -41,9 +39,7 @@ cmp.setup({
       name = "spell",
       option = {
         keep_all_entries = false,
-        enable_in_context = function()
-          return true
-        end,
+        enable_in_context = function() return true end,
       },
     },
   }),

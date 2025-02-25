@@ -5,9 +5,7 @@ local silent, noremap = keymap.silent, keymap.noremap
 local opts = keymap.new_opts
 local autocmd = require("utils.autocmd")
 
-autocmd.user_pattern("VeryLazy", function()
-  require("telescope").load_extension("lazygit")
-end)
+autocmd.user_pattern("VeryLazy", function() require("telescope").load_extension("lazygit") end)
 
 nmap({
   "<Leader>l",
@@ -43,10 +41,10 @@ return {
         delete = { text = "ﬠ" },
         topdelete = { text = "ﬢ" },
       },
-    }
+    },
   },
   {
     "sindrets/diffview.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-  }
+  },
 }

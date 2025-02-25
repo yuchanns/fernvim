@@ -1,9 +1,7 @@
 local system = require("utils.system")
 local autocmd = require("utils.autocmd")
 
-if not system.is_executable("glsl_analyzer") then
-  return
-end
+if not system.is_executable("glsl_analyzer") then return end
 local lspconfig = require("lspconfig")
 lspconfig["glsl_analyzer"].setup({
   cmd = { "glsl_analyzer" },

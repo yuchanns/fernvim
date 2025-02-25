@@ -40,12 +40,11 @@ nmap({
     cmd("BufferLineCycleNext"),
     opts(noremap, silent),
   },
-  { "<C-h>", function() require('swap-buffers').swap_buffers('h') end, opts(noremap, silent) },
-  { "<C-j>", function() require('swap-buffers').swap_buffers('j') end, opts(noremap, silent) },
-  { "<C-k>", function() require('swap-buffers').swap_buffers('k') end, opts(noremap, silent) },
-  { "<C-l>", function() require('swap-buffers').swap_buffers('l') end, opts(noremap, silent) },
+  { "<C-h>", function() require("swap-buffers").swap_buffers("h") end, opts(noremap, silent) },
+  { "<C-j>", function() require("swap-buffers").swap_buffers("j") end, opts(noremap, silent) },
+  { "<C-k>", function() require("swap-buffers").swap_buffers("k") end, opts(noremap, silent) },
+  { "<C-l>", function() require("swap-buffers").swap_buffers("l") end, opts(noremap, silent) },
 })
-
 
 return {
   { "famiu/bufdelete.nvim" },
@@ -73,21 +72,13 @@ return {
             local info = #vim.diagnostic.get(0, { severity = seve.INFO })
             local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
 
-            if error ~= 0 then
-              table.insert(result, { text = "  " .. error, link = "DiagnosticError" })
-            end
+            if error ~= 0 then table.insert(result, { text = "  " .. error, link = "DiagnosticError" }) end
 
-            if warning ~= 0 then
-              table.insert(result, { text = "  " .. warning, link = "DiagnosticWarn" })
-            end
+            if warning ~= 0 then table.insert(result, { text = "  " .. warning, link = "DiagnosticWarn" }) end
 
-            if hint ~= 0 then
-              table.insert(result, { text = "  " .. hint, link = "DiagnosticHint" })
-            end
+            if hint ~= 0 then table.insert(result, { text = "  " .. hint, link = "DiagnosticHint" }) end
 
-            if info ~= 0 then
-              table.insert(result, { text = "  " .. info, link = "DiagnosticInfo" })
-            end
+            if info ~= 0 then table.insert(result, { text = "  " .. info, link = "DiagnosticInfo" }) end
             return result
           end,
         },
@@ -101,6 +92,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
-    "caenrique/swap-buffers.nvim", opts = {},
-  }
+    "caenrique/swap-buffers.nvim",
+    opts = {},
+  },
 }

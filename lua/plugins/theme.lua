@@ -1,8 +1,6 @@
 local autocmd = require("utils.autocmd")
 
-autocmd.user_pattern("LazyDone", function()
-  vim.cmd [[colorscheme tokyonight]]
-end)
+autocmd.user_pattern("LazyDone", function() vim.cmd([[colorscheme tokyonight]]) end)
 
 return {
   {
@@ -35,5 +33,5 @@ return {
     priority = 1000,
   },
   { "nvim-lua/lsp-status.nvim" },
-  { "folke/lsp-colors.nvim",   opt = {} }
+  { "folke/lsp-colors.nvim", opt = {} },
 }
