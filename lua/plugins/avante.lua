@@ -14,6 +14,8 @@ return {
     auto_suggestions_provider = "azure",
     copilot = {
       model = "claude-3.7-sonnet",
+      temperature = 1,
+      max_tokens = 20000,
     },
     web_search_engine = {
       provider = "kagi"
