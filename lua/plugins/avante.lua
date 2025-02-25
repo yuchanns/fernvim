@@ -13,7 +13,7 @@ return {
     provider = "copilot",
     auto_suggestions_provider = "azure",
     copilot = {
-      model = "claude-3.5-sonnet",
+      model = "claude-3.7-sonnet",
     },
     web_search_engine = {
       provider = "kagi"
