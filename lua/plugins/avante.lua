@@ -15,6 +15,9 @@ return {
     copilot = {
       model = "claude-3.5-sonnet",
     },
+    web_search_engine = {
+      provider = "kagi"
+    },
     azure = {
       endpoint = "https://malacca.yuchanns.xyz/azure-openai/yuchanns-eastus",
       deployment = "gpt-4o-mini",
